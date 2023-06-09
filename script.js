@@ -1,17 +1,17 @@
 function verificar() {
-    window.alert('FUNCIONOU!')
-
-        
     var data = new Date()
     var ano = data.getFullYear()
-    var fano = window.document.getElementById('txtano')
-    var res = window.document.getElementById('res')
+    var fano = document.getElementById('txtano')
+    var res = document.getElementById('res')
 
-    if (fano.Value.length == 0 || fano.value > ano) {
+    if (fano.value.length == 0 || Number fano.value > ano) {
         window.alert('[ERRO] verifique os dados e tente novamente!')
 
-    } else {
-        window.alert('tudo ok')
+    } 
+    else {
+       var fsex = document.getElementsByName('radsex')
+       var idade = ano - Number(fano.value)
+       res.innerHTML = `Idade Calculada: ${idade}`
     }
 
 }
