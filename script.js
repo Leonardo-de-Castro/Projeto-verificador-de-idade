@@ -29,7 +29,7 @@ function verificar() {
             }
 
         } else if (fsex[1].checked) {
-            genero = 'Feminino'
+            genero = 'Mulher'
             if (idade >=0 && idade <10) {
                 //Criança
                 img.setAttribute('src', 'imagens/foto-bebe-menina.png')
