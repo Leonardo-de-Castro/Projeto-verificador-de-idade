@@ -1,17 +1,37 @@
 function verificar() {
+    var fano = window.document.getElementById('txtano')
+    var res = window.document.getElementById('res')
     var data = new Date()
     var ano = data.getFullYear()
-    var fano = document.getElementById('txtano')
-    var res = document.getElementById('res')
 
-    if (fano.value.length == 0 || Number fano.value > ano) {
+    if (fano.value.length == 0 || Number (fano.value) > ano) {
         window.alert('[ERRO] verifique os dados e tente novamente!')
+    }  else {
+        var fsex = window.document.getElementsByName('radsex')
+        var idade = ano - Number(fano.value)
+        var genero = ''
+        var img = document.createElement('img')
+        img.setAttribute('id', 'foto')
+        if (fsex[0].checked) {
+            genero = 'Homem'
+            if (idade >=0 && idade <10) {
+                //Criança
+                img.setAttribute('src', 'imagens/foto-bebe-menino.png')
+            } else if (idade < 21) {
+                //Jovem
+                img.setAttribute('src', 'imagens/foto-jovem-homem.png')
+            } else if (idade < 50) {
+                //Adulto
+                img.setAttribute('src', 'imagens/foto-adulto-homem.png')
+            } else {
+                //Idoso
+                img.setAttribute('src', 'imagens/foto-idoso-homem.png')
+            }
 
-    } 
-    else {
-       var fsex = document.getElementsByName('radsex')
-       var idade = ano - Number(fano.value)
-       res.innerHTML = `Idade Calculada: ${idade}`
+        } else if (fsex[1].checked) {
+            genero = 'Feminino'
+        }
+        res.innerHTML = `Detectamos ${genero} com ${idade} anos.`
+        res.appendChild(img)
     }
-
 }
